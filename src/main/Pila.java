@@ -9,11 +9,11 @@ package main;
  *
  * @author Valeria
  */
-public class PilaArbolExp {
+public class Pila {
     
     private NodoPila tope;
     
-    public PilaArbolExp(){
+    public Pila(){
         tope = null;
     }
     

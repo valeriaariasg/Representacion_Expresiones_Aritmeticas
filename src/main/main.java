@@ -15,8 +15,10 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Ventana1 ven = new Ventana1();
+        FormExpresionesAritmeticas ven = new FormExpresionesAritmeticas();
         ven.setVisible(true);
+        
+       
     }
     
 }

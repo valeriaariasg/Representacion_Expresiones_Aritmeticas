@@ -5,6 +5,7 @@
  */
 package main;
 
+import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,31 +15,37 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Valeria
  */
-public class Ventana1 extends javax.swing.JFrame {
+public class FormExpresionesAritmeticas extends javax.swing.JFrame{
 
     /**
      * Creates new form Ventana1
      */
-    public Ventana1() {
+    public FormExpresionesAritmeticas() {
         
         initComponents();
         setLocationRelativeTo(null);
     }
     
+    JFrame ventana = new JFrame();
+    
     public void BorrarTodo(){
         
         archivotxt.setText("");
-        mostrarArbol.setText("");
         infija.setText("");
         polaca.setText("");
         inversa.setText("");
+        ventana.dispose();
     }
+    
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,103 +56,31 @@ public class Ventana1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        seleccionar_archivo = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        mostrarArbol = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        borrar = new javax.swing.JToggleButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        infija = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        polaca = new javax.swing.JTextArea();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        inversa = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         archivotxt = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        infija = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        polaca = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        inversa = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        borrar = new javax.swing.JToggleButton();
+        seleccionar_archivo = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
         jScrollPane10 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("REPRESENTACION DE EXPRESIÓN ARITMÉTICA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 11, 440, -1));
-
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Seleccionar el archivo con la expresion aritmetica a recorrer");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 64, -1, -1));
-
-        seleccionar_archivo.setText("Seleccionar");
-        seleccionar_archivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seleccionar_archivoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(seleccionar_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 175, 103, -1));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("Representacion en Arbol Binario");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 64, -1, -1));
-
-        mostrarArbol.setColumns(20);
-        mostrarArbol.setRows(5);
-        jScrollPane2.setViewportView(mostrarArbol);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 96, 474, 265));
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Recorrido Infija");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 403, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Recorrido Polaca");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Recorrido Polaca Inversa");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 403, -1, -1));
-
-        borrar.setText("Borrar Todo");
-        borrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 226, 103, -1));
-
-        infija.setColumns(20);
-        infija.setRows(5);
-        jScrollPane3.setViewportView(infija);
-
-        jScrollPane6.setViewportView(jScrollPane3);
-
-        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 340, 100));
-
-        polaca.setColumns(20);
-        polaca.setRows(5);
-        jScrollPane4.setViewportView(polaca);
-
-        jScrollPane7.setViewportView(jScrollPane4);
-
-        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 330, 100));
-
-        inversa.setColumns(20);
-        inversa.setRows(5);
-        jScrollPane5.setViewportView(inversa);
-
-        jScrollPane8.setViewportView(jScrollPane5);
-
-        getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 340, 100));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -153,9 +88,59 @@ public class Ventana1 extends javax.swing.JFrame {
         archivotxt.setRows(5);
         jScrollPane1.setViewportView(archivotxt);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 428, 265));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 428, 210));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 590));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setText("Recorrido Infijo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setText("Recorrido Polaco");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setText("Recorrido Polaco Inverso");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 60, -1, -1));
+
+        infija.setColumns(20);
+        infija.setRows(5);
+        jScrollPane3.setViewportView(infija);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 150, 260));
+
+        polaca.setColumns(20);
+        polaca.setRows(5);
+        jScrollPane4.setViewportView(polaca);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, 150, 260));
+
+        inversa.setColumns(20);
+        inversa.setRows(5);
+        jScrollPane5.setViewportView(inversa);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 90, 150, 260));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("REPRESENTACION DE ARBOL DE EXPRESIÓN ARITMÉTICA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 520, -1));
+
+        borrar.setText("Borrar Todo");
+        borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 103, -1));
+
+        seleccionar_archivo.setText("Seleccionar");
+        seleccionar_archivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seleccionar_archivoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(seleccionar_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 103, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 410));
         getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 430, 260));
         getContentPane().add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 420, 260));
 
@@ -192,11 +177,31 @@ public class Ventana1 extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Archivo leido correctamente");
 
                     String cadena = archivotxt.getText();
-                    ArbolBinarioExp ABE = new ArbolBinarioExp(cadena);
+                    ArbolBinario ABE = new ArbolBinario(cadena);
                     infija.setText(ABE.Imprimir(0));
                     polaca.setText(ABE.Imprimir(1));
                     inversa.setText(ABE.Imprimir(2));
 
+                    int mostrarArbol;
+                    mostrarArbol = JOptionPane.showOptionDialog(null, "¿Desea ver la representacion grafica del arbol de expresiones aritmeticas?",
+                            "Confirmación",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            new Object[] { "Sí", "No"},
+                            "No");
+                    if (mostrarArbol == JOptionPane.YES_OPTION) {
+                        
+                        Lienzo objLienzo = new Lienzo(); 
+                        Controlador objControlador = new Controlador(objLienzo, ABE);
+                        objControlador.iniciar();
+                        ventana.setLocation(0, 0);
+                        ventana.getContentPane().add(objLienzo);
+                        ventana.setDefaultCloseOperation(3);
+                        ventana.setSize(900, 900);
+                        ventana.setVisible(true);
+                        
+                    }
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Error al leer el archivo, por favor intenta de nuevo");
                 }
@@ -227,20 +232,21 @@ public class Ventana1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormExpresionesAritmeticas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormExpresionesAritmeticas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormExpresionesAritmeticas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormExpresionesAritmeticas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana1().setVisible(true);
+                new FormExpresionesAritmeticas().setVisible(true);
             }
         });
     }
@@ -252,22 +258,16 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JTextArea inversa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea mostrarArbol;
     private javax.swing.JTextArea polaca;
     private javax.swing.JButton seleccionar_archivo;
     // End of variables declaration//GEN-END:variables

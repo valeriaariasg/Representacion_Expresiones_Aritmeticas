@@ -9,14 +9,14 @@ package main;
  *
  * @author Valeria
  */
-public class ArbolBinarioExp {
+public class ArbolBinario {
     
     NodoArbol raiz;
     
     /**
      *
      */
-    public ArbolBinarioExp(){
+    public ArbolBinario(){
         raiz = null;
     }
     
@@ -24,7 +24,7 @@ public class ArbolBinarioExp {
      *
      * @param cadena
      */
-    public ArbolBinarioExp(String cadena){
+    public ArbolBinario(String cadena){
         raiz = CrearArbolBE(cadena);
         
     }
@@ -173,16 +173,16 @@ public class ArbolBinarioExp {
     
     private NodoArbol CrearArbolBE(String cadena){
         
-        PilaArbolExp PilaOperadores;
-        PilaArbolExp PilaExpresiones;
+        Pila PilaOperadores;
+        Pila PilaExpresiones;
         
         NodoArbol token;
         NodoArbol op1;
         NodoArbol op2;
         NodoArbol op;
         
-        PilaOperadores = new PilaArbolExp();
-        PilaExpresiones = new PilaArbolExp();
+        PilaOperadores = new Pila();
+        PilaExpresiones = new Pila();
         
         char caracterEvaluado;
         for(int i = 0; i < cadena.length(); i++){
@@ -207,7 +207,7 @@ public class ArbolBinarioExp {
                         PilaOperadores.Quitar();
                         break;
                     default:
-                        while(!PilaOperadores.PilaVacia() && Prioridad(caracterEvaluado)<= (PilaOperadores.TopePila().dato.toString().charAt(0))){
+                        while(!PilaOperadores.PilaVacia() && Prioridad(caracterEvaluado)<= Prioridad(PilaOperadores.TopePila().dato.toString().charAt(0))){
                             op2 = PilaExpresiones.Quitar();
                             op1 = PilaExpresiones.Quitar();
                             op = PilaOperadores.Quitar();
