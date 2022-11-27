@@ -11,36 +11,36 @@ package main;
  */
 public class Pila {
     
-    private NodoPila tope;
+    private NodoPila cima;
     
     public Pila(){
-        tope = null;
+        cima = null;
     }
     
     public void Insertar(NodoArbol elemento){
         NodoPila nuevo;
         nuevo = new NodoPila(elemento);
-        nuevo.siguiente = tope;
-        tope = nuevo;
+        nuevo.siguiente = cima;
+        cima = nuevo;
     }
     
     public boolean PilaVacia(){
-        return tope == null;
+        return cima == null;
     }
     
-    public NodoArbol TopePila(){
-        return tope.dato;
+    public NodoArbol CimaPila(){
+        return cima.dato;
     }
     
     public void ReiniciarPila(){
-        tope = null;
+        cima = null;
     }
     
     public NodoArbol Quitar(){
         NodoArbol aux = null;
         if(!PilaVacia()){
-            aux = tope.dato;
-            tope = tope.siguiente;
+            aux = cima.dato;
+            cima = cima.siguiente;
         }
         return aux;  
     }

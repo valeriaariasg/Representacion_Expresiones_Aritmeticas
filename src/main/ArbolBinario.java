@@ -25,7 +25,7 @@ public class ArbolBinario {
      * @param cadena
      */
     public ArbolBinario(String cadena){
-        raiz = CrearArbolBE(cadena);
+        raiz = CrearABE(cadena);
         
     }
     
@@ -40,7 +40,7 @@ public class ArbolBinario {
      *
      * @param dato
      */
-    public void CrearNodo(Object dato){
+    public void Nodo(Object dato){
         raiz = new NodoArbol(dato);
     }
     
@@ -51,7 +51,7 @@ public class ArbolBinario {
      * @param operador
      * @return
      */
-    public NodoArbol CreaSubArbol(NodoArbol dato2, NodoArbol dato1, NodoArbol operador){
+    public NodoArbol SubArbol(NodoArbol dato2, NodoArbol dato1, NodoArbol operador){
         operador.izquierdo = dato1;
         operador.derecho = dato2;
         return operador;
@@ -171,62 +171,62 @@ public class ArbolBinario {
         return resultado;
     }
     
-    private NodoArbol CrearArbolBE(String cadena){
+    private NodoArbol CrearABE(String cadena){
         
-        Pila PilaOperadores;
-        Pila PilaExpresiones;
+        Pila Operadores;
+        Pila Expresiones;
         
         NodoArbol token;
         NodoArbol op1;
         NodoArbol op2;
         NodoArbol op;
         
-        PilaOperadores = new Pila();
-        PilaExpresiones = new Pila();
+        Operadores = new Pila();
+        Expresiones = new Pila();
         
         char caracterEvaluado;
         for(int i = 0; i < cadena.length(); i++){
             caracterEvaluado = cadena.charAt(i);
             token = new NodoArbol(caracterEvaluado);
             if(!EsOperador(caracterEvaluado)){
-                PilaExpresiones.Insertar(token);
+                Expresiones.Insertar(token);
             }
             else{
                 switch(caracterEvaluado){
                     case '(':
-                        PilaOperadores.Insertar(token);
+                        Operadores.Insertar(token);
                         break;
                     case ')':
-                        while(!PilaOperadores.PilaVacia() && !PilaOperadores.TopePila().dato.equals('(')){
-                            op2 = PilaExpresiones.Quitar();
-                            op1 = PilaExpresiones.Quitar();
-                            op = PilaOperadores.Quitar();
-                            op = CreaSubArbol(op2, op1, op);
-                            PilaExpresiones.Insertar(op);
+                        while(!Operadores.PilaVacia() && !Operadores.CimaPila().dato.equals('(')){
+                            op2 = Expresiones.Quitar();
+                            op1 = Expresiones.Quitar();
+                            op = Operadores.Quitar();
+                            op = SubArbol(op2, op1, op);
+                            Expresiones.Insertar(op);
                         }
-                        PilaOperadores.Quitar();
+                        Operadores.Quitar();
                         break;
                     default:
-                        while(!PilaOperadores.PilaVacia() && Prioridad(caracterEvaluado)<= Prioridad(PilaOperadores.TopePila().dato.toString().charAt(0))){
-                            op2 = PilaExpresiones.Quitar();
-                            op1 = PilaExpresiones.Quitar();
-                            op = PilaOperadores.Quitar();
-                            op = CreaSubArbol(op2, op1, op);
-                            PilaExpresiones.Insertar(op);
+                        while(!Operadores.PilaVacia() && Prioridad(caracterEvaluado)<= Prioridad(Operadores.CimaPila().dato.toString().charAt(0))){
+                            op2 = Expresiones.Quitar();
+                            op1 = Expresiones.Quitar();
+                            op = Operadores.Quitar();
+                            op = SubArbol(op2, op1, op);
+                            Expresiones.Insertar(op);
                         }
-                        PilaOperadores.Insertar(token);
+                        Operadores.Insertar(token);
                 }
             }
             
         }
-        while(!PilaOperadores.PilaVacia()){
-            op2 = PilaExpresiones.Quitar();
-            op1 = PilaExpresiones.Quitar();
-            op = PilaOperadores.Quitar();
-            op = CreaSubArbol(op2, op1, op);
-            PilaExpresiones.Insertar(op);
+        while(!Operadores.PilaVacia()){
+            op2 = Expresiones.Quitar();
+            op1 = Expresiones.Quitar();
+            op = Operadores.Quitar();
+            op = SubArbol(op2, op1, op);
+            Expresiones.Insertar(op);
         }
-        op = PilaExpresiones.Quitar();
+        op = Expresiones.Quitar();
         return op;
     }
     
