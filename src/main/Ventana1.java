@@ -38,6 +38,7 @@ public class Ventana1 extends javax.swing.JFrame {
         polaca.setText("");
         inversa.setText("");
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,8 +50,6 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        archivotxt = new javax.swing.JTextArea();
         seleccionar_archivo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -58,25 +57,32 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        borrar = new javax.swing.JToggleButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         infija = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         polaca = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         inversa = new javax.swing.JTextArea();
-        borrar = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        archivotxt = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jScrollPane10 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setText("REPRESENTACION DE EXPRESIÓN ARITMÉTICA");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 11, 440, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Seleccionar el archivo con la expresion aritmetica a recorrer");
-
-        archivotxt.setColumns(20);
-        archivotxt.setRows(5);
-        jScrollPane1.setViewportView(archivotxt);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 64, -1, -1));
 
         seleccionar_archivo.setText("Seleccionar");
         seleccionar_archivo.addActionListener(new java.awt.event.ActionListener() {
@@ -84,34 +90,29 @@ public class Ventana1 extends javax.swing.JFrame {
                 seleccionar_archivoActionPerformed(evt);
             }
         });
+        getContentPane().add(seleccionar_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 175, 103, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Representacion en Arbol Binario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 64, -1, -1));
 
         mostrarArbol.setColumns(20);
         mostrarArbol.setRows(5);
         jScrollPane2.setViewportView(mostrarArbol);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 96, 474, 265));
+
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Recorrido Infija");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 403, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Recorrido Polaca");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Recorrido Polaca Inversa");
-
-        infija.setColumns(20);
-        infija.setRows(5);
-        jScrollPane3.setViewportView(infija);
-
-        polaca.setColumns(20);
-        polaca.setRows(5);
-        jScrollPane4.setViewportView(polaca);
-
-        inversa.setColumns(20);
-        inversa.setRows(5);
-        jScrollPane5.setViewportView(inversa);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 403, -1, -1));
 
         borrar.setText("Borrar Todo");
         borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,96 +120,49 @@ public class Ventana1 extends javax.swing.JFrame {
                 borrarActionPerformed(evt);
             }
         });
+        getContentPane().add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 226, 103, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(seleccionar_archivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(134, 134, 134)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(19, 19, 19)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(162, 162, 162))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(278, 278, 278))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(219, 219, 219))))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(451, 451, 451)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(seleccionar_archivo)
-                        .addGap(28, 28, 28)
-                        .addComponent(borrar)))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel6)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
+        infija.setColumns(20);
+        infija.setRows(5);
+        jScrollPane3.setViewportView(infija);
+
+        jScrollPane6.setViewportView(jScrollPane3);
+
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 340, 100));
+
+        polaca.setColumns(20);
+        polaca.setRows(5);
+        jScrollPane4.setViewportView(polaca);
+
+        jScrollPane7.setViewportView(jScrollPane4);
+
+        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 330, 100));
+
+        inversa.setColumns(20);
+        inversa.setRows(5);
+        jScrollPane5.setViewportView(inversa);
+
+        jScrollPane8.setViewportView(jScrollPane5);
+
+        getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 340, 100));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        archivotxt.setColumns(20);
+        archivotxt.setRows(5);
+        jScrollPane1.setViewportView(archivotxt);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 428, 265));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 590));
+        getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 430, 260));
+        getContentPane().add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 420, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void seleccionar_archivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionar_archivoActionPerformed
+        
         
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
@@ -225,6 +179,14 @@ public class Ventana1 extends javax.swing.JFrame {
             archivotxt.append("La expresion aritmetica es la siguiente:\n\n");
             archivotxt.append(text);
             JOptionPane.showMessageDialog(null, "Archivo leido correctamente");
+            
+            
+            ArbolBinarioExp ABE = new ArbolBinarioExp(text);
+            
+            infija.setText(ABE.Imprimir(0));
+            polaca.setText(ABE.Imprimir(1));
+            inversa.setText(ABE.Imprimir(2));
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, intenta de nuevo");
         }
@@ -281,11 +243,17 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea mostrarArbol;
     private javax.swing.JTextArea polaca;
     private javax.swing.JButton seleccionar_archivo;
