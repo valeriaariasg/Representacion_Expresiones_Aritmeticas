@@ -5,6 +5,7 @@
  */
 package main;
 
+import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -162,35 +163,47 @@ public class Ventana1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seleccionar_archivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionar_archivoActionPerformed
-        
+        BorrarTodo();
         
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
         File archivo_leer = fc.getSelectedFile();
-        try{
-            FileReader fr = new FileReader (archivo_leer);
-            BufferedReader br = new BufferedReader(fr);
-            String text = "";
-            String line = "";
-            
-            while(((line = br.readLine())!=null) ){
-                text += line+"\n";
+        if (archivo_leer.getAbsolutePath().endsWith(".txt")) {
+            int confirm = JOptionPane.showOptionDialog(null, "¿Está seguro que desea usar el arhivo: " + archivo_leer.getName() + " ?",
+                         "Confirmación",
+                         JOptionPane.YES_NO_OPTION,
+                         JOptionPane.QUESTION_MESSAGE,
+                         null,
+                         new Object[] { "Sí", "No"},
+                         "No");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try{
+                    FileReader fr = new FileReader (archivo_leer);
+                    BufferedReader br = new BufferedReader(fr);
+                    String text = "";
+                    String line = "";
+
+                    while(((line = br.readLine())!=null) ){
+                        text += line;
+                    }
+                    //archivotxt.append("La expresion aritmetica es la siguiente:\n\n");
+                    archivotxt.setText(text);
+                    JOptionPane.showMessageDialog(null, "Archivo leido correctamente");
+
+                    String cadena = archivotxt.getText();
+                    ArbolBinarioExp ABE = new ArbolBinarioExp(cadena);
+                    infija.setText(ABE.Imprimir(0));
+                    polaca.setText(ABE.Imprimir(1));
+                    inversa.setText(ABE.Imprimir(2));
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error al leer el archivo, por favor intenta de nuevo");
+                }
             }
-            archivotxt.append("La expresion aritmetica es la siguiente:\n\n");
-            archivotxt.append(text);
-            JOptionPane.showMessageDialog(null, "Archivo leido correctamente");
-            
-            
-            ArbolBinarioExp ABE = new ArbolBinarioExp(text);
-            
-            infija.setText(ABE.Imprimir(0));
-            polaca.setText(ABE.Imprimir(1));
-            inversa.setText(ABE.Imprimir(2));
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error, intenta de nuevo");
+        }else{
+            JOptionPane.showMessageDialog(null, "Solo se aceptan archivos tipo (.txt), por favor intentar de nuevo");
         }
-        
     }//GEN-LAST:event_seleccionar_archivoActionPerformed
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
