@@ -5,27 +5,22 @@
  */
 package main;
 
-import java.awt.BorderLayout;
-import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Valeria
+ * Es la interfaz grafica del proyecto
+ * @author Valeria Arias, Jesus Perez
  */
 public class FormExpresionesAritmeticas extends javax.swing.JFrame{
 
     /**
-     * Creates new form Ventana1
+     * Crea un nuevo form Ventana1
+     * @author Valeria Arias, Jesus Perez
      */
     public FormExpresionesAritmeticas() {
         
@@ -35,6 +30,11 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
     
     JFrame ventana = new JFrame();
     
+    /**
+     * Borra lo que se encuentra en los textArea
+     * @author Valeria Arias, Jesus Perez
+     * Borra lo escrito en los textArea, dejandolos en blanco
+     */
     public void BorrarTodo(){
         
         archivotxt.setText("");
@@ -92,7 +92,7 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Recorrido Infijo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Recorrido Polaco");
@@ -150,6 +150,7 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
     private void seleccionar_archivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionar_archivoActionPerformed
         BorrarTodo();
         
+        //Aqui se lee el archivo txt
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
         File archivo_leer = fc.getSelectedFile();
@@ -172,16 +173,19 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
                     while(((line = br.readLine())!=null) ){
                         text += line;
                     }
-                    //archivotxt.append("La expresion aritmetica es la siguiente:\n\n");
+                    //Se muestra la expresion aritmetica
                     archivotxt.setText(text);
                     JOptionPane.showMessageDialog(null, "Archivo leido correctamente");
 
+                    //Aqui se muestran los arboles en sus 3 notaciones
                     String cadena = archivotxt.getText();
                     ArbolBinario ABE = new ArbolBinario(cadena);
                     infija.setText(ABE.Imprimir(0));
                     polaca.setText(ABE.Imprimir(1));
                     inversa.setText(ABE.Imprimir(2));
 
+                    //Ahora pregunta si se desea mostrar la representacion grafica del arbolbinario;
+                    // al aceptar, se muestra en pantalla
                     int mostrarArbol;
                     mostrarArbol = JOptionPane.showOptionDialog(null, "¿Desea ver la representacion grafica del arbol de expresiones aritmeticas?",
                             "Confirmación",
@@ -192,6 +196,8 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
                             "No");
                     if (mostrarArbol == JOptionPane.YES_OPTION) {
                         
+                        //se crea el panel y se configuran sus caracteristicas
+                        //se muestra la grafica del arbol
                         Lienzo objLienzo = new Lienzo(); 
                         Controlador objControlador = new Controlador(objLienzo, ABE);
                         objControlador.iniciar();
@@ -212,6 +218,7 @@ public class FormExpresionesAritmeticas extends javax.swing.JFrame{
     }//GEN-LAST:event_seleccionar_archivoActionPerformed
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        //LLama a BorrarTodo()
         BorrarTodo();
     }//GEN-LAST:event_borrarActionPerformed
 

@@ -8,8 +8,8 @@ package main;
 import javax.lang.model.SourceVersion;
 
 /**
- *
- * @author Valeria
+ * Crea el nodo de un arbol
+ * @author Valeria Arias, Jesus Perez
  */
 public class NodoArbol {
     
@@ -17,12 +17,22 @@ public class NodoArbol {
     NodoArbol izquierdo;
     NodoArbol derecho;
     
+    /**
+    * Crea un nodo para el arbol, clase constructor
+    * @param x El nodo que se desa crear
+    * @author Valeria Arias, Jesus Perez
+    */
     public NodoArbol(Object x){
         dato = x;
         izquierdo = null;
         derecho = null;
     }
     
+    /**
+    * Los nodos del arbol
+    * @param n El nodo del arbol
+    * @author Valeria Arias, Jesus Perez
+    */
     public int nodosCompletos(NodoArbol n) {
         if (n == null)
             return 0;
@@ -32,7 +42,12 @@ public class NodoArbol {
             return nodosCompletos(n.izquierdo) + nodosCompletos(n.derecho);
         }
     }
-
+    
+    /**
+    * Para obtener la ultima version de la fuente
+    * @return return un dato de tipo SourceVersion
+    * @author Valeria Arias, Jesus Perez
+    */
     public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latest();
     }

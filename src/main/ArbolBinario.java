@@ -6,23 +6,26 @@
 package main;
 
 /**
- *
- * @author Valeria
+ * Crea el arbol binario y sus primitivas
+ * @author Valeria Arias, Jesus Perez
  */
 public class ArbolBinario {
     
     NodoArbol raiz;
     
     /**
-     *
+     * Crea el arbol binario, clase constructor
+     * @author Valeria Arias, Jesus Perez
+     * Crea el arbol con la raiz apuntando a null
      */
     public ArbolBinario(){
         raiz = null;
     }
     
     /**
-     *
-     * @param cadena
+     * Crea la raiz del arbol
+     * @param cadena El str que se usara para crear la raiz y el arbol
+     * @author Valeria Arias, Jesus Perez
      */
     public ArbolBinario(String cadena){
         raiz = CrearABE(cadena);
@@ -30,26 +33,29 @@ public class ArbolBinario {
     }
     
     /**
-     *
+     * Reinicia el arbol
+     * @author Valeria Arias, Jesus Perez
      */
     public void ReiniciaArbol(){
         raiz = null;
     }
     
     /**
-     *
-     * @param dato
+     * Crea un nodo
+     * @param dato el dato del nodo
+     * @author Valeria Arias, Jesus Perez
      */
     public void Nodo(Object dato){
         raiz = new NodoArbol(dato);
     }
     
     /**
-     *
-     * @param dato2
-     * @param dato1
-     * @param operador
-     * @return
+     * Los sub-arboles del arbol binario
+     * @param dato2 El operdaor derecho
+     * @param dato1 El operador izquierdo
+     * @param operador Lo que se va a retornar
+     * @return Retorna un dato de tipo NodoArbol
+     * @author Valeria Arias, Jesus Perez
      */
     public NodoArbol SubArbol(NodoArbol dato2, NodoArbol dato1, NodoArbol operador){
         operador.izquierdo = dato1;
@@ -58,18 +64,20 @@ public class ArbolBinario {
     }
     
     /**
-     *
-     * @return
+     * Verifica si el arbol esta vacio
+     * @return retorna un bool
+     * @author Valeria Arias, Jesus Perez
      */
     public boolean ArbolVacio(){
         return raiz == null;
     }
     
     /**
-     *
-     * @param subArbol
-     * @param c
-     * @return
+     * Expresar el arbol en Preorden o infija
+     * @param subArbol un sub-arbol del arbol binario
+     * @param c un dato
+     * @return Retorna un str
+     * @author Valeria Arias, Jesus Perez
      */
     public String PreOrden(NodoArbol subArbol, String c){
         String cadena;
@@ -80,11 +88,12 @@ public class ArbolBinario {
         return cadena;
     }
     
-    /**
-     *
-     * @param subArbol
-     * @param c
-     * @return
+     /**
+     * Expresar el arbol en Inorden o Polaca
+     * @param subArbol un sub-arbol del arbol binario
+     * @param c un dato
+     * @return Retorna un str
+     * @author Valeria Arias, Jesus Perez
      */
     public String InOrden(NodoArbol subArbol, String c){
         String cadena;
@@ -96,10 +105,11 @@ public class ArbolBinario {
     }
     
     /**
-     *
-     * @param subArbol
-     * @param c
-     * @return
+     * Expresar el arbol en Posorden o Polaca Inversa
+     * @param subArbol un sub-arbol del arbol binario
+     * @param c un dato
+     * @return Retorna un str
+     * @author Valeria Arias, Jesus Perez
      */
     public String PosOrden(NodoArbol subArbol, String c){
         String cadena;
@@ -111,9 +121,10 @@ public class ArbolBinario {
     }
     
     /**
-     *
-     * @param a
-     * @return
+     * Imprime el arbol en sus 3 notaciones
+     * @param a un dato para realizar el "switch"
+     * @return retorna un str
+     * @author Valeria Arias, Jesus Perez
      */
     public String Imprimir(int a){
         String cadena = "";
@@ -131,6 +142,12 @@ public class ArbolBinario {
         return cadena;
     }
     
+    /**
+     * Determina la prioridad de los operadores
+     * @param c un dato para realizar el "switch"
+     * @return retorna un int
+     * @author Valeria Arias, Jesus Perez
+     */
     private int Prioridad(char c){
         int p = 100;
         switch(c){
@@ -153,6 +170,12 @@ public class ArbolBinario {
         return p;
     } 
     
+    /**
+     * Verifica si el dato es o no un operador
+     * @param c un dato para realizar el "switch"
+     * @return retorna un bool
+     * @author Valeria Arias, Jesus Perez
+     */
     private boolean EsOperador(char c){
         boolean resultado;
         switch(c){
@@ -171,6 +194,12 @@ public class ArbolBinario {
         return resultado;
     }
     
+    /**
+     * Crea el arbol a traves de un dato str 
+     * @param cadena el dato con el que se creara el arbol
+     * @return retorna un dato de tipo NodoArbol
+     * @author Valeria Arias, Jesus Perez
+     */
     private NodoArbol CrearABE(String cadena){
         
         Pila Operadores;

@@ -9,15 +9,20 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
- *
- * @author Valeria
+ * Muestra la representacion grafica del arbol binario
+ * @author Valeria Arias, Jesus Perez
  */
 public class Lienzo extends JPanel {
     private ArbolBinario objArbol;
     public static final int DIAMETRO = 30;
     public static final int RADIO = DIAMETRO / 2;
     public static final int ANCHO = 20;
-
+    
+    /**
+    * Ayuda a inicializar el lienzo en la interfaz grafica
+    * @param objArbol el objeto del arbol
+    * @author Valeria Arias, Jesus Perez
+    */
     public void setObjArbol(ArbolBinario objArbol) {
         this.objArbol = objArbol;
         repaint();
@@ -29,6 +34,14 @@ public class Lienzo extends JPanel {
         pintar(g, getWidth() / 2, 20, objArbol.raiz);
     }
     
+    /**
+    * Calcula el radio, ancho y diametro del arbol y el lienzo, para luego pintarlo
+    * @param g Los graficos
+    * @param x dato que se usa para mostrar el arbol
+    * @param y dato que se usa para mostrar el arbol
+    * @param n un nodo del arbol
+    * @author Valeria Arias, Jesus Perez
+    */
     private void pintar(Graphics g, int x, int y, NodoArbol n) {
         if (n == null)
         {}
